@@ -1,0 +1,94 @@
+{% extends 'tasks/base.html' %}
+{% block content %}
+
+<h2>Your Tasks</h2>
+<div style="text-align:right; margin-bottom:1rem;">
+  <a href="{% url 'add_task' %}" class="btn btn-primary">+ Add Task</a>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <form method="get" style="display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+      <input type="text" name="q" placeholder="Search tasks..." value="{{ request.GET.q }}" class="form-control" style="flex:1; min-width:200px;">
+      <select name="filter" class="form-select" style="min-width:150px;">
+        <option value="">All Tasks</option>
+        <option value="completed" {% if request.GET.filter == 'completed' %}selected{% endif %}>Completed</option>
+        <option value="pending" {% if request.GET.filter == 'pending' %}selected{% endif %}>Pending</option>
+      </select>
+      <select name="sort" class="form-select" style="min-width:180px;">
+        <option value="due_date" {% if request.GET.sort == 'due_date' %}selected{% endif %}>Sort by Due Date</option>
+        <option value="title" {% if request.GET.sort == 'title' %}selected{% endif %}>Sort by Title</option>
+      </select>
+      <button type="submit" class="btn btn-primary">Apply</button>
+    </form>
+
+    {% if tasks %}
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Due Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for task in tasks %}
+          <tr>
+            <td data-label="Title">
+              <strong>{{ task.title }}</strong>
+              <small>{{ task.description }}</small>
+            </td>
+            <td data-label="Due Date">{{ task.due_date|date:"M d, Y" }}</td>
+            <td data-label="Status">
+              {% if task.is_completed %}
+                <span class="badge bg-success">Completed</span>
+              {% else %}
+                <span class="badge bg-warning">Pending</span>
+              {% endif %}
+            </td>
+            <td data-label="Actions">
+              <div class="btn-group">
+                <a href="{% url 'task_update' task.id %}" class="btn btn-outline-warning btn-sm">Edit</a>
+                <a href="{% url 'task_delete' task.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                <a href="{% url 'toggle_task_completion' task.id %}" class="btn btn-outline-success btn-sm">
+                  {% if task.is_completed %}Undo{% else %}Done{% endif %}
+                </a>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    {% else %}
+    <table class="table">
+      <tbody>
+        <tr>
+          <td colspan="4">
+            <i class="fa-regular fa-folder-open fa-2x"></i>
+            <p>No tasks yet. Create one using the “+ Add Task” button.</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    {% endif %}
+
+    {% if tasks.has_other_pages %}
+    <div class="pagination" style="margin-top:1.5rem;">
+      {% if tasks.has_previous %}
+        <a class="page-link" href="?page={{ tasks.previous_page_number }}">Previous</a>
+      {% endif %}
+      <span class="page-link">{{ tasks.number }} / {{ tasks.paginator.num_pages }}</span>
+      {% if tasks.has_next %}
+        <a class="page-link" href="?page={{ tasks.next_page_number }}">Next</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
+
+{% endblock %}
+
