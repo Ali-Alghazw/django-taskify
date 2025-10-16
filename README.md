@@ -1,8 +1,8 @@
-🧩 Taskify – A Simple Task Manager
+# 🧩 Taskify – A Simple Task Manager
 
 A minimal yet modern task management web app built with Django, designed to help users stay organized by creating, editing, and tracking daily tasks through an elegant, responsive interface.
 
-📖 Table of Contents
+# 📖 Table of Contents
 
 -Overview
 -Features
@@ -16,7 +16,7 @@ A minimal yet modern task management web app built with Django, designed to help
 -Future Improvements
 -Author
 
-📝 Overview
+# 📝 Overview
 
 Taskify is a personal task management web app that allows users to:
 
@@ -27,7 +27,7 @@ Taskify is a personal task management web app that allows users to:
 - Enjoy a clean, modern interface built entirely with custom CSS (no frameworks).
 - It’s a full-stack Django application demonstrating CRUD operations, authentication, and dynamic template rendering.
 
-🚀 Features
+# 🚀 Features
 
 ✅ User registration & authentication (login/logout)
 ✅ Create, view, update, and delete tasks
@@ -37,7 +37,7 @@ Taskify is a personal task management web app that allows users to:
 ✅ Fully responsive modern UI
 ✅ Plain CSS (no Bootstrap or frameworks)
 
-🧠 Tech Stack
+# 🧠 Tech Stack
 
 Backend: Django 5.x
 Frontend: HTML, CSS (custom, responsive)
@@ -46,14 +46,14 @@ Auth: Django built-in authentication
 Version Control: Git + GitHub
 Deployment: Localhost (development server)
 
-📁 Project Structure
+# 📁 Project Structure
 
 
 <img width="607" height="821" alt="image" src="https://github.com/user-attachments/assets/b26a6f9f-2858-4629-8c1d-bacb200be026" />
 
 
 
-📊 Database Schema
+# 📊 Database Schema
 
 
 Task Model
@@ -64,7 +64,7 @@ Task Model
 
 
 
-👤 User Stories
+# 👤 User Stories
 
 As a user, I can register and log in to manage my tasks.
 As a user, I can create new tasks with title, description, and due date.
@@ -73,7 +73,7 @@ As a user, I can edit or delete existing tasks.
 As a user, I can mark tasks as completed or pending.
 As a user, I can search or filter tasks by status.
 
-⚙️ Installation & Setup
+# ⚙️ Installation & Setup
 1️⃣ Clone the Repository
 git clone https://github.com/Ali-Alghazw/django-taskify.git
 cd django-taskify
@@ -100,14 +100,14 @@ python manage.py runserver
 Now visit http://127.0.0.1:8000/
  to use Taskify 🎯
 
-💻 Usage
+# 💻 Usage
 
 1.Register or log in with your credentials.
 2.Create a new task using the “Add Task” button.
 3.Edit, delete, or mark tasks as completed.
 4.Use filters and pagination to navigate tasks efficiently.
 
-🖼️ Screenshots
+# 🖼️ Screenshots
 
 (You can add your screenshots later here)
 
@@ -125,29 +125,30 @@ Now visit http://127.0.0.1:8000/
 
 
 
-🧪 Running Tests
+# 🧪 Running Tests
 Taskify includes comprehensive unit tests covering models, views, forms, authentication, and integration scenarios.
 
 Run All Tests
    python manage.py test
 
 Run Specific Test Classes
-# Model tests only
+- Model tests only
 python manage.py test tasks.tests.TaskModelTest
 
-# View tests only
+- View tests only
 python manage.py test tasks.tests.TaskViewsTest
 
-# Authentication tests only
+- Authentication tests only
 python manage.py test tasks.tests.AuthenticationTest
 
-# Filter and search tests
+- Filter and search tests
 python manage.py test tasks.tests.TaskFilterSearchTest
 
-# Integration tests
+- Integration tests
 python manage.py test tasks.tests.IntegrationTest
 
-Test Statistics
+- Test Statistics
+
 
 Total Tests: 30+
 Model Tests: 7
@@ -158,13 +159,15 @@ Filter/Search Tests: 5
 Integration Tests: 1
 Coverage: 95%+
 
-🧩 Challenges & Solutions
+# 🧩 Challenges & Solutions
 Challenge	Solution
 Managing multiple accounts on Git	Configured Git user settings per project
 Styling without Bootstrap	Built a custom modern CSS design system
 Logout link not working	Switched to a POST form-based logout for security
 Ensuring responsiveness	Added mobile-first media queries in custom CSS
-🚀 Future Improvements
+
+
+# 🚀 Future Improvements
 
 - Add dark/light theme toggle 🌗
 - Task categories or labels 🏷️
@@ -173,7 +176,7 @@ Ensuring responsiveness	Added mobile-first media queries in custom CSS
 
 REST API endpoints for external use ⚙️
 
-👨‍💻 Author
+# 👨‍💻 Author
 
 - Ali Al-Ghazw -
 📧 alinabeel03aa@gmail.com
