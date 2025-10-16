@@ -13,13 +13,20 @@
     <a href="{% url 'task_list' %}" class="navbar-brand">Taskify</a>
 
     <div style="display:flex; align-items:center; gap:1rem;">
-      {% if user.is_authenticated %}
+      {% comment %} {% if user.is_authenticated %}
         <span class="text-white">Hello, {{ user.username }}</span>
-        <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a>
-      {% else %}
-        <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
-        <a href="{% url 'signup' %}" class="btn btn-outline-primary">Sign Up</a>
-      {% endif %}
+        <a href="{% url 'logout' %}" class="btn btn-outline-danger">Logout</a> {% endcomment %}
+      
+		{% if user.is_authenticated %}
+  <span class="text-white">Hello, {{ user.username }}</span>
+  <form method="post" action="{% url 'logout' %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-outline-danger">Logout</button>
+  </form>
+{% else %}
+  <a href="{% url 'login' %}" class="btn btn-outline-light">Login</a>
+  <a href="{% url 'signup' %}" class="btn btn-outline-primary">Sign Up</a>
+{% endif %}
     </div>
   </div>
 </nav>

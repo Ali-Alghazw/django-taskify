@@ -2,8 +2,9 @@
 {% block content %}
 
 <h2>Your Tasks</h2>
+
 <div style="text-align:right; margin-bottom:1rem;">
-  <a href="{% url 'add_task' %}" class="btn btn-primary">+ Add Task</a>
+  <a href="{% url 'add_task' %}" class="btn btn-outline-success">+ Add Task</a>
 </div>
 
 <div class="card">
@@ -22,7 +23,7 @@
       <button type="submit" class="btn btn-primary">Apply</button>
     </form>
 
-    {% if tasks %}
+    {% if page_obj %}
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -34,7 +35,7 @@
           </tr>
         </thead>
         <tbody>
-          {% for task in tasks %}
+          {% for task in page_obj %}
           <tr>
             <td data-label="Title">
               <strong>{{ task.title }}</strong>
@@ -50,8 +51,8 @@
             </td>
             <td data-label="Actions">
               <div class="btn-group">
-                <a href="{% url 'task_update' task.id %}" class="btn btn-outline-warning btn-sm">Edit</a>
-                <a href="{% url 'task_delete' task.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
+                <a href="{% url 'edit_task' task.id %}" class="btn btn-outline-warning btn-sm">Edit</a>
+                <a href="{% url 'delete_task' task.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
                 <a href="{% url 'toggle_task_completion' task.id %}" class="btn btn-outline-success btn-sm">
                   {% if task.is_completed %}Undo{% else %}Done{% endif %}
                 </a>
@@ -69,21 +70,21 @@
         <tr>
           <td colspan="4">
             <i class="fa-regular fa-folder-open fa-2x"></i>
-            <p>No tasks yet. Create one using the “+ Add Task” button.</p>
+            <p>No tasks yet. Create one using the “+ Add Task” button, or try clearing your filter</p>
           </td>
         </tr>
       </tbody>
     </table>
     {% endif %}
 
-    {% if tasks.has_other_pages %}
+    {% if page_obj.has_other_pages %}
     <div class="pagination" style="margin-top:1.5rem;">
-      {% if tasks.has_previous %}
-        <a class="page-link" href="?page={{ tasks.previous_page_number }}">Previous</a>
+      {% if page_obj.has_previous %}
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
       {% endif %}
-      <span class="page-link">{{ tasks.number }} / {{ tasks.paginator.num_pages }}</span>
-      {% if tasks.has_next %}
-        <a class="page-link" href="?page={{ tasks.next_page_number }}">Next</a>
+      <span class="page-link">{{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
       {% endif %}
     </div>
     {% endif %}
@@ -91,4 +92,3 @@
 </div>
 
 {% endblock %}
-
