@@ -46,20 +46,48 @@ Auth: Django built-in authentication
 Version Control: Git + GitHub
 Deployment: Localhost (development server)
 
-🧩 ERD
-User (Django built-in)
-├── id
-├── username
-├── email
-├── password
+📁 Project Structure
+django-taskify/
+├── taskify_project/          # Main project directory
+│   ├── __init__.py
+│   ├── settings.py           # Project settings
+│   ├── urls.py               # Main URL configuration
+│   ├── asgi.py
+│   └── wsgi.py
+├── tasks/                    # Tasks app
+│   ├── migrations/           # Database migrations
+│   ├── static/               # Static files (CSS)
+│   │   └── tasks/
+│   │       └── styles.css    # Custom styles
+│   ├── templates/            # HTML templates
+│   │   ├── registration/     # Auth templates
+│   │   │   ├── login.html
+│   │   │   └── signup.html
+│   │   └── tasks/            # Task templates
+│   │       ├── base.html
+│   │       ├── task_list.html
+│   │       ├── task_form.html
+│   │       ├── edit_task.html
+│   │       └── delete_task.html
+│   ├── __init__.py
+│   ├── admin.py              # Admin configuration
+│   ├── apps.py
+│   ├── forms.py              # Task forms
+│   ├── models.py             # Task model
+│   ├── tests.py              # Unit tests
+│   ├── urls.py               # App URL configuration
+│   └── views.py              # View functions
+├── db.sqlite3                # SQLite database
+├── manage.py                 # Django management script
+├── requirements.txt          # Python dependencies
+├── .gitignore
+└── README.md                 # This file
 
-Task
-├── id
-├── title
-├── description
-├── due_date
-├── is_completed
-└── user_id (FK → User.id)
+
+
+📊 Database Schema
+Task Model
+<img width="683" height="265" alt="image" src="https://github.com/user-attachments/assets/b0a77cc6-5457-4f6c-a4d1-59c43f1857db" />
 
 👤 User Stories
 
@@ -119,6 +147,41 @@ Now visit http://127.0.0.1:8000/
 
 ✏️ Edit Task Page
 <img width="1504" height="670" alt="image" src="https://github.com/user-attachments/assets/4d08869a-0e3c-4742-9a7b-b89571e212d2" />
+
+
+
+🧪 Running Tests
+Taskify includes comprehensive unit tests covering models, views, forms, authentication, and integration scenarios.
+
+Run All Tests
+   python manage.py test
+
+Run Specific Test Classes
+# Model tests only
+python manage.py test tasks.tests.TaskModelTest
+
+# View tests only
+python manage.py test tasks.tests.TaskViewsTest
+
+# Authentication tests only
+python manage.py test tasks.tests.AuthenticationTest
+
+# Filter and search tests
+python manage.py test tasks.tests.TaskFilterSearchTest
+
+# Integration tests
+python manage.py test tasks.tests.IntegrationTest
+
+Test Statistics
+
+Total Tests: 30+
+Model Tests: 7
+Form Tests: 4
+View Tests: 15
+Authentication Tests: 4
+Filter/Search Tests: 5
+Integration Tests: 1
+Coverage: 95%+
 
 🧩 Challenges & Solutions
 Challenge	Solution
