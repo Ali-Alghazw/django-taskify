@@ -1,4 +1,29 @@
-venv/,
-__pycache__/,
-.vscode/, 
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# VS Code
+.vscode/
+
+# Environment files
 .env
+
+# Django / SQLite
+db.sqlite3
+
+# Static files (collected)
+staticfiles/
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
