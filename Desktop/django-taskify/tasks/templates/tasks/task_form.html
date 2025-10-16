@@ -2,6 +2,6 @@
 <h2>{% if form.instance.pk %}Edit Task{% else %}Add Task{% endif %}</h2>
 <form method="POST">
   {% csrf_token %} {{ form.as_p }}
-  <button type="submit">Save</button>
+  <button class="btn btn-primary" type="submit">Save</button>
 </form>
 {% endblock %}
