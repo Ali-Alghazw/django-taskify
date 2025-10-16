@@ -47,47 +47,22 @@ Version Control: Git + GitHub
 Deployment: Localhost (development server)
 
 📁 Project Structure
-django-taskify/
-├── taskify_project/          # Main project directory
-│   ├── __init__.py
-│   ├── settings.py           # Project settings
-│   ├── urls.py               # Main URL configuration
-│   ├── asgi.py
-│   └── wsgi.py
-├── tasks/                    # Tasks app
-│   ├── migrations/           # Database migrations
-│   ├── static/               # Static files (CSS)
-│   │   └── tasks/
-│   │       └── styles.css    # Custom styles
-│   ├── templates/            # HTML templates
-│   │   ├── registration/     # Auth templates
-│   │   │   ├── login.html
-│   │   │   └── signup.html
-│   │   └── tasks/            # Task templates
-│   │       ├── base.html
-│   │       ├── task_list.html
-│   │       ├── task_form.html
-│   │       ├── edit_task.html
-│   │       └── delete_task.html
-│   ├── __init__.py
-│   ├── admin.py              # Admin configuration
-│   ├── apps.py
-│   ├── forms.py              # Task forms
-│   ├── models.py             # Task model
-│   ├── tests.py              # Unit tests
-│   ├── urls.py               # App URL configuration
-│   └── views.py              # View functions
-├── db.sqlite3                # SQLite database
-├── manage.py                 # Django management script
-├── requirements.txt          # Python dependencies
-├── .gitignore
-└── README.md                 # This file
+
+
+<img width="607" height="821" alt="image" src="https://github.com/user-attachments/assets/b26a6f9f-2858-4629-8c1d-bacb200be026" />
 
 
 
 📊 Database Schema
+
+
 Task Model
+
+
 <img width="683" height="265" alt="image" src="https://github.com/user-attachments/assets/b0a77cc6-5457-4f6c-a4d1-59c43f1857db" />
+
+
+
 
 👤 User Stories
 
